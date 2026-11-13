@@ -3,125 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuis SAS Informatika - Kelas 11 (SMA JAGADHITA)</title>
+<title>Kuis SAS Informatika - Kelas 11</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  @keyframes rainbowBg {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-  @keyframes shake {
-    0%, 100% { transform: rotate(-1deg); }
-    50% { transform: rotate(1deg); }
-  }
-  @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ffff00; }
-    50% { box-shadow: 0 0 25px #00ff00, 0 0 40px #ff0000, 0 0 60px #ff00ff; }
-  }
-  @keyframes hueRotate {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
-  }
-
   body {
-    font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
-    background: linear-gradient(270deg, #ff00ff, #00ffff, #ffff00, #ff0000, #00ff00, #ff8800, #ff00ff);
-    background-size: 1400% 1400%;
-    animation: rainbowBg 8s ease infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
     min-height: 100vh;
     padding: 20px;
-    color: #000;
+    color: #333;
   }
-
   .container {
     max-width: 900px;
     margin: 0 auto;
-    background: #fffbe6;
-    border: 6px dashed #ff00ff;
-    border-radius: 25px;
-    box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     overflow: hidden;
-    animation: shake 0.6s infinite;
   }
-
   header {
-    background: linear-gradient(90deg, #ff0000, #ff8800, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
-    background-size: 400% 400%;
-    animation: rainbowBg 3s linear infinite;
+    background: linear-gradient(135deg, #059669, #0284c7);
     color: #fff;
     padding: 30px 25px;
     text-align: center;
-    text-shadow: 3px 3px 0 #000, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
   }
-  header h1 {
-    font-size: 1.8em;
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-    animation: blink 1.2s infinite;
-  }
-  header p { font-size: 1em; font-weight: bold; }
+  header h1 { font-size: 1.6em; margin-bottom: 6px; }
+  header p { opacity: 0.9; font-size: 0.95em; }
 
   .section { padding: 25px 30px; }
 
   /* ===== FORM IDENTITAS ===== */
   .identity-form label {
     display: block;
-    font-weight: 900;
+    font-weight: 600;
     margin-bottom: 6px;
-    color: #ff00ff;
-    font-size: 1.1em;
-    text-shadow: 1px 1px 0 #00ffff;
+    color: #059669;
   }
   .identity-form input {
     width: 100%;
     padding: 12px 14px;
-    border: 4px solid #00ff00;
-    border-radius: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
     font-size: 1em;
     margin-bottom: 18px;
-    background: #ffffcc;
-    font-family: inherit;
-    font-weight: bold;
-    transition: border 0.2s, box-shadow 0.2s;
+    transition: border 0.2s;
   }
   .identity-form input:focus {
     outline: none;
-    border-color: #ff00ff;
-    box-shadow: 0 0 15px #ff00ff;
+    border-color: #0ea5e9;
   }
 
   .btn {
     display: inline-block;
-    background: linear-gradient(90deg, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
-    background-size: 400% 400%;
-    animation: rainbowBg 2s linear infinite, glowPulse 2s infinite;
+    background: linear-gradient(135deg, #059669, #0284c7);
     color: #fff;
-    border: 4px solid #000;
-    padding: 16px 32px;
-    font-size: 1.15em;
-    font-weight: 900;
-    border-radius: 50px;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1.05em;
+    font-weight: 600;
+    border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
     width: 100%;
-    font-family: inherit;
-    text-shadow: 2px 2px 0 #000;
-    letter-spacing: 1px;
-    transition: transform 0.15s;
   }
   .btn:hover {
-    transform: scale(1.05) rotate(-1deg);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(5,150,105,0.4);
+  }
+  .btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
   .btn-secondary {
-    background: linear-gradient(90deg, #333, #666, #333);
-    animation: blink 1s infinite;
-    border-color: #ff00ff;
+    background: #6b7280;
   }
+  .btn-secondary:hover { box-shadow: 0 8px 20px rgba(107,114,128,0.4); }
 
   /* ===== SOAL ===== */
   .quiz-header {
@@ -131,97 +89,61 @@
     flex-wrap: wrap;
     gap: 10px;
     padding: 15px 30px;
-    background: repeating-linear-gradient(45deg, #ffff00, #ffff00 10px, #ff8800 10px, #ff8800 20px);
-    border-bottom: 4px solid #ff00ff;
+    background: #ecfdf5;
+    border-bottom: 1px solid #d1fae5;
   }
-  .quiz-header .student-info {
-    font-weight: 900;
-    color: #000;
-    background: #00ffff;
-    padding: 4px 10px;
-    border-radius: 8px;
-    border: 2px solid #000;
-    text-shadow: 1px 1px 0 #fff;
-  }
-  .progress-text {
-    font-weight: 900;
-    font-size: 0.9em;
-    color: #000;
-    background: #ff00ff;
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 8px;
-    border: 2px solid #000;
-  }
+  .quiz-header .student-info { font-weight: 600; color: #059669; }
+  .progress-text { font-size: 0.9em; color: #6b7280; }
 
   .progress-bar {
-    height: 14px;
-    background: #000;
+    height: 6px;
+    background: #e5e7eb;
     width: 100%;
-    border-bottom: 3px solid #ff00ff;
   }
   .progress-fill {
     height: 100%;
-    background: repeating-linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
-    background-size: 200% 100%;
-    animation: rainbowBg 1.5s linear infinite;
+    background: linear-gradient(90deg, #059669, #0284c7);
     width: 0%;
     transition: width 0.3s;
   }
 
   .question-card {
     padding: 25px 30px;
-    border-bottom: 4px dotted #ff00ff;
-    background: #fff;
+    border-bottom: 1px solid #eee;
   }
-  .question-card:nth-child(odd) { background: #fffbe6; }
-  .question-card:nth-child(even) { background: #e6f7ff; }
   .question-card:last-of-type { border-bottom: none; }
 
   .q-number {
     display: inline-block;
-    background: #ff00ff;
-    color: #ffff00;
-    font-weight: 900;
-    padding: 5px 14px;
+    background: #d1fae5;
+    color: #059669;
+    font-weight: 700;
+    padding: 4px 12px;
     border-radius: 20px;
-    font-size: 0.9em;
+    font-size: 0.85em;
     margin-bottom: 12px;
-    border: 3px solid #000;
-    text-shadow: 1px 1px 0 #000;
-    animation: blink 1.5s infinite;
   }
   .q-text {
-    font-weight: 900;
-    font-size: 1.08em;
+    font-weight: 600;
+    font-size: 1.05em;
     margin-bottom: 15px;
     line-height: 1.5;
-    color: #000080;
   }
   .options { display: flex; flex-direction: column; gap: 10px; }
   .option {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    padding: 12px 15px;
-    border: 3px solid #0000ff;
-    border-radius: 12px;
+    padding: 11px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
     cursor: pointer;
-    background: #ffffcc;
-    font-weight: bold;
     transition: all 0.15s;
+    background: #fafafa;
   }
-  .option:hover {
-    border-color: #ff00ff;
-    background: #ffccff;
-    transform: translateX(5px) scale(1.02);
-  }
-  .option input { margin-top: 3px; accent-color: #ff00ff; cursor: pointer; transform: scale(1.3); }
-  .option.selected {
-    border-color: #ff0000;
-    background: #00ff00;
-    animation: glowPulse 1.5s infinite;
-  }
+  .option:hover { border-color: #6ee7b7; background: #ecfdf5; }
+  .option input { margin-top: 3px; accent-color: #059669; cursor: pointer; }
+  .option.selected { border-color: #059669; background: #ecfdf5; }
 
   /* ===== HASIL ===== */
   .result-box {
@@ -229,8 +151,8 @@
     padding: 35px 25px;
   }
   .score-circle {
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin: 0 auto 20px;
     display: flex;
@@ -238,95 +160,59 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    background: conic-gradient(#ff0000, #ff8800, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
-    border: 8px solid #000;
-    animation: glowPulse 1.5s infinite, hueRotate 4s linear infinite;
+    background: linear-gradient(135deg, #059669, #0284c7);
+    box-shadow: 0 10px 30px rgba(5,150,105,0.4);
   }
-  .score-circle .score-num {
-    font-size: 2.8em;
-    font-weight: 900;
-    line-height: 1;
-    text-shadow: 3px 3px 0 #000;
-  }
-  .score-circle .score-label {
-    font-size: 0.85em;
-    font-weight: 900;
-    margin-top: 4px;
-    text-shadow: 2px 2px 0 #000;
-    letter-spacing: 2px;
-  }
+  .score-circle .score-num { font-size: 2.6em; font-weight: 800; line-height: 1; }
+  .score-circle .score-label { font-size: 0.8em; opacity: 0.9; margin-top: 4px; }
 
   .result-summary {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
     margin: 20px 0 10px;
   }
   .stat {
     padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 900;
-    border: 4px solid #000;
-    font-size: 1.05em;
+    border-radius: 10px;
+    font-weight: 600;
   }
-  .stat.correct {
-    background: #00ff00;
-    color: #000;
-    box-shadow: 0 0 20px #00ff00;
-  }
-  .stat.wrong {
-    background: #ff0000;
-    color: #fff;
-    box-shadow: 0 0 20px #ff0000;
-    text-shadow: 2px 2px 0 #000;
-  }
-  .stat.empty {
-    background: #ffff00;
-    color: #000;
-    box-shadow: 0 0 20px #ffff00;
-  }
+  .stat.correct { background: #dcfce7; color: #166534; }
+  .stat.wrong { background: #fee2e2; color: #991b1b; }
+  .stat.empty { background: #fef9c3; color: #854d0e; }
 
   .result-message {
-    font-size: 1.2em;
-    font-weight: 900;
+    font-size: 1.1em;
+    font-weight: 600;
     margin: 15px 0 25px;
-    padding: 18px;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
-    background-size: 400% 400%;
-    animation: rainbowBg 3s linear infinite;
-    color: #000;
-    border: 4px dashed #000;
-    text-shadow: 1px 1px 0 #fff;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f3f4f6;
   }
 
   .review-title {
     text-align: left;
-    font-weight: 900;
-    font-size: 1.2em;
+    font-weight: 700;
+    font-size: 1.1em;
     margin: 25px 0 12px;
-    color: #ff00ff;
-    text-shadow: 2px 2px 0 #00ffff;
-    animation: blink 2s infinite;
+    color: #059669;
   }
   .review-item {
     text-align: left;
     padding: 12px 15px;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-bottom: 10px;
     font-size: 0.92em;
     line-height: 1.5;
-    border: 3px solid #000;
-    font-weight: bold;
   }
-  .review-item.correct { background: #ccffcc; border-left: 8px solid #00ff00; }
-  .review-item.wrong { background: #ffcccc; border-left: 8px solid #ff0000; }
-  .review-item.empty { background: #ffffcc; border-left: 8px solid #ffff00; }
-  .review-item .r-q { font-weight: 900; margin-bottom: 4px; color: #000080; }
-  .review-item .r-detail { color: #333; }
-  .review-item .r-detail span.ans-user { color: #ff0000; font-weight: 900; }
-  .review-item .r-detail span.ans-key { color: #009900; font-weight: 900; }
+  .review-item.correct { background: #f0fdf4; border-left: 4px solid #22c55e; }
+  .review-item.wrong { background: #fef2f2; border-left: 4px solid #ef4444; }
+  .review-item.empty { background: #fefce8; border-left: 4px solid #eab308; }
+  .review-item .r-q { font-weight: 600; margin-bottom: 4px; }
+  .review-item .r-detail { color: #555; }
+  .review-item .r-detail span.ans-user { color: #ef4444; font-weight: 600; }
+  .review-item .r-detail span.ans-key { color: #22c55e; font-weight: 600; }
 
   .hidden { display: none !important; }
 
@@ -334,8 +220,8 @@
     .section { padding: 20px 18px; }
     .question-card { padding: 20px 18px; }
     .quiz-header { padding: 12px 18px; }
-    header h1 { font-size: 1.2em; }
-    .result-summary { gap: 10px; }
+    header h1 { font-size: 1.3em; }
+    .result-summary { gap: 12px; }
     .stat { padding: 10px 16px; font-size: 0.9em; }
   }
 </style>
@@ -343,20 +229,20 @@
 <body>
 <div class="container">
   <header>
-    <h1>🌈✨ KUIS SAS INFORMATIKA ✨🌈</h1>
-    <p>★彡 KELAS 11 — SMA JAGADHITA 彡★</p>
+    <h1>💻 Sumatif Akhir Semester Ganjil</h1>
+    <p>Mata Pelajaran Informatika — Kelas 11</p>
   </header>
 
   <!-- ===== FORM IDENTITAS ===== -->
   <div id="identitySection" class="section">
     <form class="identity-form" id="identityForm">
-      <label for="nama">💖 Nama Lengkap 💖</label>
+      <label for="nama">Nama Lengkap</label>
       <input type="text" id="nama" placeholder="Masukkan nama lengkap Anda" required>
 
-      <label for="absen">🔥 Nomor Absen 🔥</label>
+      <label for="absen">Nomor Absen</label>
       <input type="number" id="absen" placeholder="Masukkan nomor absen" min="1" max="50" required>
 
-      <button type="submit" class="btn">🚀 MULAI KUIS 🚀</button>
+      <button type="submit" class="btn">Mulai Mengerjakan Kuis ➜</button>
     </form>
   </div>
 
@@ -369,7 +255,7 @@
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     <div id="questionsContainer"></div>
     <div class="section">
-      <button id="submitBtn" class="btn">✅ SELESAI & LIHAT HASIL ✅</button>
+      <button id="submitBtn" class="btn">Selesai & Lihat Hasil ✔</button>
     </div>
   </div>
 
@@ -382,18 +268,18 @@
       </div>
 
       <div class="result-summary">
-        <div class="stat correct">✔ Benar: <span id="countCorrect">0</span></div>
-        <div class="stat wrong">✘ Salah: <span id="countWrong">0</span></div>
-        <div class="stat empty">⚠ Kosong: <span id="countEmpty">0</span></div>
+        <div class="stat correct">Benar: <span id="countCorrect">0</span></div>
+        <div class="stat wrong">Salah: <span id="countWrong">0</span></div>
+        <div class="stat empty">Kosong: <span id="countEmpty">0</span></div>
       </div>
 
       <div class="result-message" id="resultMessage"></div>
 
-      <div class="review-title">🔍 REVIEW JAWABAN 🔍</div>
+      <div class="review-title">🔍 Review Jawaban</div>
       <div id="reviewContainer"></div>
 
       <div style="margin-top:25px;">
-        <button class="btn btn-secondary" onclick="location.reload()">🔁 ULANGI KUIS 🔁</button>
+        <button class="btn btn-secondary" onclick="location.reload()">Ulangi Kuis</button>
       </div>
     </div>
   </div>
@@ -495,7 +381,7 @@ function renderQuestions() {
 
     const num = document.createElement("div");
     num.className = "q-number";
-    num.textContent = `✦ Soal ${idx + 1} ✦`;
+    num.textContent = `Soal ${idx + 1}`;
 
     const qText = document.createElement("div");
     qText.className = "q-text";
@@ -538,7 +424,7 @@ function updateProgress() {
   const pct = Math.round((answered / questions.length) * 100);
   document.getElementById("progressFill").style.width = pct + "%";
   document.getElementById("progressText").textContent =
-    `💫 ${answered}/${questions.length} (${pct}%) 💫`;
+    `Terjawab: ${answered} / ${questions.length} soal (${pct}%)`;
 }
 
 /* ================= SUBMIT ================= */
@@ -546,7 +432,7 @@ function submitQuiz() {
   const unanswered = userAnswers.filter(a => a === null).length;
   if (unanswered > 0) {
     const confirmSubmit = confirm(
-      `⚠️ Masih ada ${unanswered} soal yang belum dijawab. Yakin ingin menyelesaikan kuis?`
+      `Masih ada ${unanswered} soal yang belum dijawab. Yakin ingin menyelesaikan kuis?`
     );
     if (!confirmSubmit) return;
   }
@@ -591,10 +477,10 @@ function submitQuiz() {
 
   const msg = document.getElementById("resultMessage");
   let message = "";
-  if (score >= 90) message = `🎉🌟 WOW KEREN BANGET, ${student.nama}! NILAIMU ${score}! 🌟🎉`;
-  else if (score >= 75) message = `👍✨ BAGUS, ${student.nama}! NILAIMU ${score}! ✨👍`;
-  else if (score >= 60) message = `💪🔥 LUMAYAN, ${student.nama}. NILAIMU ${score}. BELAJAR LAGI YAA! 🔥💪`;
-  else message = `📚😅 SEMANGAT, ${student.nama}! NILAIMU ${score}. JANGAN MENYERAH! 😅📚`;
+  if (score >= 90) message = `🎉 Luar biasa, ${student.nama}! Pemahamanmu sangat baik.`;
+  else if (score >= 75) message = `👍 Bagus, ${student.nama}! Pertahankan dan tingkatkan lagi.`;
+  else if (score >= 60) message = `💪 Cukup baik, ${student.nama}. Pelajari kembali materi yang salah ya.`;
+  else message = `📚 Jangan menyerah, ${student.nama}. Yuk belajar lagi materi Informatika!`;
   msg.textContent = message;
 
   document.getElementById("quizSection").classList.add("hidden");
